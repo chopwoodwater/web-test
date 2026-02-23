@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About\nThis is a placeholder for Policy Gradient Lab’s research insights and project updates."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "RL Post-training Review",
+    "section": "",
+    "text": "强化学习的目标函数为：\nJ(\\theta) = \\mathbb{E}_{\\pi_\\theta} [\\sum_{t=0}^{\\infty} \\gamma^t r_t]"
+  },
+  {
+    "objectID": "index.html#核心公式",
+    "href": "index.html#核心公式",
+    "title": "RL Post-training Review",
+    "section": "",
+    "text": "强化学习的目标函数为：\nJ(\\theta) = \\mathbb{E}_{\\pi_\\theta} [\\sum_{t=0}^{\\infty} \\gamma^t r_t]"
+  },
+  {
+    "objectID": "index.html#代码实验",
+    "href": "index.html#代码实验",
+    "title": "RL Post-training Review",
+    "section": "代码实验",
+    "text": "代码实验\nimport matplotlib.pyplot as plt. plt.plot([1, 2, 3], [4, 5, 6]) plt.show()"
+  }
+]
