@@ -2,9 +2,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "1 About",
     "section": "",
-    "text": "About\nThis is a placeholder for Policy Gradient Lab’s research insights and project updates."
+    "text": "1 About\nThis is a placeholder for Policy Gradient Lab’s research insights and project updates."
   },
   {
     "objectID": "index.html",
@@ -24,7 +24,7 @@
     "objectID": "index.html#代码实验",
     "href": "index.html#代码实验",
     "title": "RL Post-training Review",
-    "section": "代码实验",
-    "text": "代码实验\nimport matplotlib.pyplot as plt. plt.plot([1, 2, 3], [4, 5, 6]) plt.show()"
+    "section": "2 代码实验",
+    "text": "2 代码实验\nimport matplotlib.pyplot as plt. plt.plot([1, 2, 3], [4, 5, 6]) plt.show()"
   }
 ]
