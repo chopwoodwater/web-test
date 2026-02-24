@@ -2,9 +2,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "1 About",
     "section": "",
-    "text": "About\nThis is a placeholder for Policy Gradient Lab’s research insights and project updates."
+    "text": "1 About\nThis is a placeholder for Policy Gradient Lab’s research insights and project updates."
   },
   {
     "objectID": "posts/2026-03-01-policy-gradient-derivation/index.html",
@@ -24,22 +24,22 @@
     "objectID": "posts/2026-03-01-policy-gradient-derivation/index.html#the-objective-function",
     "href": "posts/2026-03-01-policy-gradient-derivation/index.html#the-objective-function",
     "title": "The Mathematical Elegance of Policy Gradients",
-    "section": "The Objective Function",
-    "text": "The Objective Function\nWe define our objective J(\\theta) as the expected cumulative reward under the policy \\pi_\\theta:\nJ(\\theta) = \\mathbb{E}_{\\tau \\sim \\pi_\\theta} [R(\\tau)]\nwhere \\tau represents a trajectory (s_0, a_0, r_0, s_1, a_1, \\dots)."
+    "section": "2 The Objective Function",
+    "text": "2 The Objective Function\nWe define our objective J(\\theta) as the expected cumulative reward under the policy \\pi_\\theta:\nJ(\\theta) = \\mathbb{E}_{\\tau \\sim \\pi_\\theta} [R(\\tau)]\nwhere \\tau represents a trajectory (s_0, a_0, r_0, s_1, a_1, \\dots)."
   },
   {
     "objectID": "posts/2026-03-01-policy-gradient-derivation/index.html#the-log-derivative-trick",
     "href": "posts/2026-03-01-policy-gradient-derivation/index.html#the-log-derivative-trick",
     "title": "The Mathematical Elegance of Policy Gradients",
-    "section": "The Log-Derivative Trick",
-    "text": "The Log-Derivative Trick\nTo compute the gradient without knowing the environment’s transition dynamics, we utilize the Log-Derivative Trick (also known as the REINFORCE trick):"
+    "section": "3 The Log-Derivative Trick",
+    "text": "3 The Log-Derivative Trick\nTo compute the gradient without knowing the environment’s transition dynamics, we utilize the Log-Derivative Trick (also known as the REINFORCE trick):"
   },
   {
     "objectID": "posts/2026-03-01-policy-gradient-derivation/index.html#the-policy-gradient-theorem",
     "href": "posts/2026-03-01-policy-gradient-derivation/index.html#the-policy-gradient-theorem",
     "title": "The Mathematical Elegance of Policy Gradients",
-    "section": "The Policy Gradient Theorem",
-    "text": "The Policy Gradient Theorem\nApplying this to our objective function, we derive the fundamental identity:\nwhere is the return from time . This result is powerful because it allows us to update our model using only sampled trajectories, effectively “pushing up” the probability of actions that led to higher rewards.\n\n\nImplementation Snippet\n# Minimal REINFORCE update step\nimport torch\n\ndef update_policy(optimizer, rewards, log_probs, gamma=0.99):\n    \"\"\"\n    Perform a single policy gradient update.\n    \"\"\"\n    R = 0\n    policy_loss = []\n    returns = []\n    \n    # Calculate returns in reverse\n    for r in rewards[::-1]:\n        R = r + gamma * R\n        returns.insert(0, R)\n        \n    returns = torch.tensor(returns)\n    # Standardize returns for stability\n    returns = (returns - returns.mean()) / (returns.std() + 1e-8)\n    \n    for log_prob, Gt in zip(log_probs, returns):\n        policy_loss.append(-log_prob * Gt)\n        \n    optimizer.zero_grad()\n    loss = torch.stack(policy_loss).sum()\n    loss.backward()\n    optimizer.step()"
+    "section": "4 The Policy Gradient Theorem",
+    "text": "4 The Policy Gradient Theorem\nApplying this to our objective function, we derive the fundamental identity:\nwhere is the return from time . This result is powerful because it allows us to update our model using only sampled trajectories, effectively “pushing up” the probability of actions that led to higher rewards.\n\n\n4.1 Implementation Snippet\n# Minimal REINFORCE update step\nimport torch\n\ndef update_policy(optimizer, rewards, log_probs, gamma=0.99):\n    \"\"\"\n    Perform a single policy gradient update.\n    \"\"\"\n    R = 0\n    policy_loss = []\n    returns = []\n    \n    # Calculate returns in reverse\n    for r in rewards[::-1]:\n        R = r + gamma * R\n        returns.insert(0, R)\n        \n    returns = torch.tensor(returns)\n    # Standardize returns for stability\n    returns = (returns - returns.mean()) / (returns.std() + 1e-8)\n    \n    for log_prob, Gt in zip(log_probs, returns):\n        policy_loss.append(-log_prob * Gt)\n        \n    optimizer.zero_grad()\n    loss = torch.stack(policy_loss).sum()\n    loss.backward()\n    optimizer.step()"
   },
   {
     "objectID": "index.html",
@@ -66,7 +66,7 @@
     "objectID": "posts/2026-02-23-rl-intro/index.html#experiments",
     "href": "posts/2026-02-23-rl-intro/index.html#experiments",
     "title": "RL Post-training Review",
-    "section": "Experiments",
-    "text": "Experiments\nimport matplotlib.pyplot as plt. plt.plot([1, 2, 3], [4, 5, 6]) plt.show()"
+    "section": "2 Experiments",
+    "text": "2 Experiments\nimport matplotlib.pyplot as plt. plt.plot([1, 2, 3], [4, 5, 6]) plt.show()"
   }
 ]

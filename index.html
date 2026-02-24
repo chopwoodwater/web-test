@@ -184,7 +184,6 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
     </div>
 <!-- main -->
 <main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -198,7 +197,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1772323200000" data-listing-file-modified-sort="1771890186670" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="316">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1772323200000" data-listing-file-modified-sort="1771891182073" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="316">
 <div class="thumbnail"><a href="./posts/2026-03-01-policy-gradient-derivation/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -220,7 +219,7 @@ Mar 1, 2026
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1771804800000" data-listing-file-modified-sort="1771890186670" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="89">
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1771804800000" data-listing-file-modified-sort="1771891182073" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="89">
 <div class="thumbnail"><a href="./posts/2026-02-23-rl-intro/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -245,6 +244,32 @@ Feb 23, 2026
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const toc = document.querySelector("#TOC");
+    if (toc) {
+      const title = toc.querySelector("#toc-title");
+      const list = toc.querySelector("ul");
+      
+      if (title && list) {
+        const details = document.createElement("details");
+        const summary = document.createElement("summary");
+        
+        // Retain original title text and ID for CSS targeting
+        summary.innerHTML = title.innerHTML;
+        summary.id = "toc-title"; 
+        
+        // Optional: Set to true if you want the TOC expanded by default
+        details.open = true; 
+        
+        // Reconstruct the DOM structure
+        details.appendChild(summary);
+        details.appendChild(list);
+        toc.replaceChild(details, title);
+      }
+    }
+  });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

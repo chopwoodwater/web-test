@@ -109,29 +109,54 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-
-<section id="about" class="level1">
-<h1>About</h1>
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#about" id="toc-about"><span class="header-section-number">1</span> About</a></li>
+  </ul>
+</nav>
+<section id="about" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> About</h1>
 <p>This is a placeholder for Policy Gradient Lab’s research insights and project updates.</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const toc = document.querySelector("#TOC");
+    if (toc) {
+      const title = toc.querySelector("#toc-title");
+      const list = toc.querySelector("ul");
+      
+      if (title && list) {
+        const details = document.createElement("details");
+        const summary = document.createElement("summary");
+        
+        // Retain original title text and ID for CSS targeting
+        summary.innerHTML = title.innerHTML;
+        summary.id = "toc-title"; 
+        
+        // Optional: Set to true if you want the TOC expanded by default
+        details.open = true; 
+        
+        // Reconstruct the DOM structure
+        details.appendChild(summary);
+        details.appendChild(list);
+        toc.replaceChild(details, title);
+      }
+    }
+  });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

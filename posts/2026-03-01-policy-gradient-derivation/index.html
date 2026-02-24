@@ -188,20 +188,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#the-objective-function" id="toc-the-objective-function" class="nav-link" data-scroll-target="#the-objective-function">The Objective Function</a></li>
-  <li><a href="#the-log-derivative-trick" id="toc-the-log-derivative-trick" class="nav-link" data-scroll-target="#the-log-derivative-trick">The Log-Derivative Trick</a></li>
-  <li><a href="#the-policy-gradient-theorem" id="toc-the-policy-gradient-theorem" class="nav-link" data-scroll-target="#the-policy-gradient-theorem">The Policy Gradient Theorem</a>
-  <ul class="collapse">
-  <li><a href="#implementation-snippet" id="toc-implementation-snippet" class="nav-link" data-scroll-target="#implementation-snippet">Implementation Snippet</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -230,28 +217,37 @@ window.Quarto = {
 
 </header>
 
-
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#the-objective-function" id="toc-the-objective-function"><span class="header-section-number">2</span> The Objective Function</a></li>
+  <li><a href="#the-log-derivative-trick" id="toc-the-log-derivative-trick"><span class="header-section-number">3</span> The Log-Derivative Trick</a></li>
+  <li><a href="#the-policy-gradient-theorem" id="toc-the-policy-gradient-theorem"><span class="header-section-number">4</span> The Policy Gradient Theorem</a></li>
+  </ul>
+</nav>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>At the heart of modern LLM alignment—from PPO to the fine-tuning of reasoning models—lies the <strong>Policy Gradient Theorem</strong>. Unlike value-based methods that learn to estimate rewards, policy gradient methods optimize the strategy () directly by following the gradient of expected returns.</p>
 </section>
-<section id="the-objective-function" class="level2">
-<h2 class="anchored" data-anchor-id="the-objective-function">The Objective Function</h2>
+<section id="the-objective-function" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="the-objective-function"><span class="header-section-number">2</span> The Objective Function</h2>
 <p>We define our objective <span class="math inline">J(\theta)</span> as the expected cumulative reward under the policy <span class="math inline">\pi_\theta</span>:</p>
 <p><span class="math display">J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} [R(\tau)]</span></p>
 <p>where <span class="math inline">\tau</span> represents a trajectory <span class="math inline">(s_0, a_0, r_0, s_1, a_1, \dots)</span>.</p>
 </section>
-<section id="the-log-derivative-trick" class="level2">
-<h2 class="anchored" data-anchor-id="the-log-derivative-trick">The Log-Derivative Trick</h2>
+<section id="the-log-derivative-trick" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="the-log-derivative-trick"><span class="header-section-number">3</span> The Log-Derivative Trick</h2>
 <p>To compute the gradient without knowing the environment’s transition dynamics, we utilize the <strong>Log-Derivative Trick</strong> (also known as the REINFORCE trick):</p>
 </section>
-<section id="the-policy-gradient-theorem" class="level2">
-<h2 class="anchored" data-anchor-id="the-policy-gradient-theorem">The Policy Gradient Theorem</h2>
+<section id="the-policy-gradient-theorem" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="the-policy-gradient-theorem"><span class="header-section-number">4</span> The Policy Gradient Theorem</h2>
 <p>Applying this to our objective function, we derive the fundamental identity:</p>
 <p>where is the return from time . This result is powerful because it allows us to update our model using only sampled trajectories, effectively “pushing up” the probability of actions that led to higher rewards.</p>
 <hr>
-<section id="implementation-snippet" class="level3">
-<h3 class="anchored" data-anchor-id="implementation-snippet">Implementation Snippet</h3>
+<section id="implementation-snippet" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="implementation-snippet"><span class="header-section-number">4.1</span> Implementation Snippet</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimal REINFORCE update step</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -285,6 +281,32 @@ window.Quarto = {
 </section>
 
 </main> <!-- /main -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const toc = document.querySelector("#TOC");
+    if (toc) {
+      const title = toc.querySelector("#toc-title");
+      const list = toc.querySelector("ul");
+      
+      if (title && list) {
+        const details = document.createElement("details");
+        const summary = document.createElement("summary");
+        
+        // Retain original title text and ID for CSS targeting
+        summary.innerHTML = title.innerHTML;
+        summary.id = "toc-title"; 
+        
+        // Optional: Set to true if you want the TOC expanded by default
+        details.open = true; 
+        
+        // Reconstruct the DOM structure
+        details.appendChild(summary);
+        details.appendChild(list);
+        toc.replaceChild(details, title);
+      }
+    }
+  });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

@@ -1,4 +1,35 @@
-/* --- Apple UI Style Overrides --- */
+/* --- Table of Contents Overrides --- */
+
+/* 1. Match font size with body content */
+#toc-title {
+  font-size: 1rem !important;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+/* 2. Remove default bullet points */
+#TOC ul {
+  list-style-type: none !important;
+  padding-left: 0 !important; 
+}
+
+/* Maintain hierarchy indentation for nested items */
+#TOC ul ul {
+  padding-left: 1.5rem !important; 
+}
+
+/* 3. Style the foldable summary element */
+#TOC summary {
+  cursor: pointer;
+  outline: none;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+/* Subtle hover feedback for the interactive element */
+#TOC summary:hover {
+  opacity: 0.7;
+}
 
 /* 1. Frosted Glass Navbar */
 .navbar {
