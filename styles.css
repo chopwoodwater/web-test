@@ -80,3 +80,40 @@ a:hover {
   color: #86868b; /* Subtle gray for secondary info */
   font-size: 0.9rem;
 }
+
+/* --- Listing Cards --- */
+
+/* Target each post container in the default listing */
+.quarto-listing-default .quarto-post {
+  border-bottom: none !important; /* Removes the horizontal ruler */
+  background-color: #ffffff; 
+  border-radius: 16px; /* Apple-style continuous curve radius */
+  padding: 1.5rem;
+  margin-bottom: 1.5rem; /* Creates clean spacing between posts */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Subtle depth */
+  border: 1px solid rgba(0, 0, 0, 0.04); /* Crisp edge definition */
+  transition: all 0.2s ease-in-out; /* Smooth animation setup */
+}
+
+/* Interactive hover state to make the cards feel responsive */
+.quarto-listing-default .quarto-post:hover {
+  transform: scale(1.01); /* Slight enlargement on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); /* Increased shadow depth */
+}
+
+/* Ensure the title inside the card has the correct spacing */
+.quarto-listing-default .quarto-post .listing-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Example of the corrected standard CSS */
+.card-container {
+  display: flex;
+  width: 100%;
+}
+
+.text-container {
+  flex-grow: 1; /* Allows the text box to expand into the empty space */
+  max-width: 800px; /* Increase this value as needed */
+}
