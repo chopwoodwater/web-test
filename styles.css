@@ -106,14 +106,3 @@ a:hover {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
-
-/* Example of the corrected standard CSS */
-.card-container {
-  display: flex;
-  width: 100%;
-}
-
-.text-container {
-  flex-grow: 1; /* Allows the text box to expand into the empty space */
-  max-width: 800px; /* Increase this value as needed */
-}
